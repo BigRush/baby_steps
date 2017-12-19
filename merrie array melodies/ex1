@@ -1,0 +1,39 @@
+#!/bin/bash
+#Created by BigRush
+
+main () {
+data () {
+
+printf "Please enter data:\n"
+
+read -a array
+}
+
+digit () {
+	data
+	arraynum=()
+	for i in ${array[*]}
+	do
+		if [[ $i == *[0-9]* ]]
+		then
+			arraynum+=("$i")
+		fi
+		sleep 1
+		printf "#"
+	done
+
+	printf "\n${arraynum[*]}\n"
+}
+digit
+}
+			
+if [ $USER == root ] ;then
+	main
+else
+	echo "Only root can run this script"
+fi
+
+
+
+
+
