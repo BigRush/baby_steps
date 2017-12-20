@@ -1,0 +1,16 @@
+#!/bin/bash
+#Created by BigRush
+
+user=$(cat /etc/passwd |cut -d ":" -f 5)
+printf "Please enter a list of users:\n"
+read -a array
+for i in ${array[*]}; do
+
+	if [[ ^$i$ =~ $user || ^$i$ =~ $nick ]]; then
+		printf "You know that user $i already exits so why are waisting my time? i'll stop now\n"
+		exit
+	else
+		useradd $i -d /home/$i -m
+		printf "User $i has been created... yay...\n"
+	fi
+done
